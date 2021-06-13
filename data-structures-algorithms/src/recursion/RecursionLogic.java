@@ -4,7 +4,9 @@ public class RecursionLogic {
 
 	public static void main(String[] args) {
 //		firstMethod();
-		recursiveMethod(4);
+		recursiveMethod(6);
+		int output = powerOfTwo(3);
+		System.err.println("power of two: " + output);
 	}
 
 //	static void firstMethod() {
@@ -33,6 +35,16 @@ public class RecursionLogic {
 		} else {
 			recursiveMethod(n-1);
 			System.err.println(n);
+		}
+	}
+	
+	static int powerOfTwo(int n) {
+		
+		if(n==0) {
+			return 1;
+		} else {
+			int power = 2 * powerOfTwo(n-1);
+			return power;
 		}
 	}
 
