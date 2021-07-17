@@ -4,7 +4,7 @@ public class Pallindrome {
 	public static void main(String[] args) {
 
 		Pallindrome obj = new Pallindrome();
-		boolean isPalin = obj.isPalin("amanaplanacanalpandemonium");
+		boolean isPalin = obj.isPalin("");
 		System.err.println(isPalin);
 	}
 

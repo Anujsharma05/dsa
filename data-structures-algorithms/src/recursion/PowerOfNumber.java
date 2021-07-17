@@ -11,17 +11,16 @@ public class PowerOfNumber {
 		System.err.println(output);
 	}
 	
-	private static int power(int num, int n) {
-		if(n<0) {
-			return -1;
+	public static int power(int base, int exponent) {
+        
+		if(exponent==0) {
+			return 1;
+		} else if(exponent == 1) {
+			return base;
+		} else {
+			return base * power(base, exponent-1);
 		}
-//		if(n==0) {
-//			return 1;
-//		}
-		if(n==1) {
-			return num;
-		}
-		return num * power(num, n-1);
-	}
+		
+    }
 
 }
