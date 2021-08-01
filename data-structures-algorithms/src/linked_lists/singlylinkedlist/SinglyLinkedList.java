@@ -50,4 +50,33 @@ public class SinglyLinkedList {
 		}
 		size++;
 	}
+	
+	public void traverseNodes() {
+		if(head == null) return;
+		
+		Node node = head;
+		
+		while(node != null) {
+			System.out.print(node.getData() + " ");
+			node = node.getNext();
+		}
+	}
+	
+	public int searchByNodeValue(int val) {
+		
+		int loc = -1;
+		int pos = 1;
+		Node tempNode = head;
+		
+		while(tempNode != null) {
+			if(tempNode.getData() == val) {
+				loc = pos;
+				break;
+			}
+			pos++;
+			tempNode = tempNode.getNext();
+		}
+		
+		return loc;
+	}
 }
