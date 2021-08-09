@@ -4,7 +4,7 @@ public class SinglyLinkedList {
 
 	Node head;
 	Node tail;
-	static int size;
+	int size;
 
 	public Node createSinglyLinkedList(int dataValue) {
 		
@@ -78,5 +78,47 @@ public class SinglyLinkedList {
 		}
 		
 		return loc;
+	}
+	
+	public void deleteNode(int location) {
+		if(head == null) {
+			System.err.println("list does not exitst");
+			return;
+		} 
+		//only one element
+		if(head.getNext() == null){
+			head = null;
+			tail = null;
+		}else if(location == 0) {
+			head = head.getNext();
+		} else if(location >= size-1) {
+			Node ptr2 = head;
+			Node ptr1 = ptr2.getNext();
+			while(ptr1.getNext() != null) {
+				ptr2 = ptr1;
+				ptr1 = ptr1.getNext();
+			}
+			
+			ptr2.setNext(null);
+			tail = ptr2;
+			ptr1 = null;
+		} else {
+			Node ptr1 = head;
+			int count = 0;
+			
+			while(count < location - 1) {
+				ptr1 = ptr1.getNext();
+				count++;
+			}
+			
+			Node node = ptr1.getNext();
+			ptr1.setNext(node.getNext());
+			node = null;
+		}
+		size--;
+	}
+	
+	public void deleteEntireList() {
+		head = tail = null;
 	}
 }
