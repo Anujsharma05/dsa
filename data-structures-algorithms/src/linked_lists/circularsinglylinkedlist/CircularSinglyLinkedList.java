@@ -1,17 +1,12 @@
 package linked_lists.circularsinglylinkedlist;
 
 public class CircularSinglyLinkedList {
-	
-	private class Node {
-		int data;
-		Node next;
-	}
-	
+
 	Node head;
 	Node tail;
 	int size;
 	
-	public Node createLinkedList(int data) {
+	public void createLinkedList(int data) {
 		
 		Node node = new Node();
 		node.data = data;
@@ -19,7 +14,6 @@ public class CircularSinglyLinkedList {
 		head = node;
 		tail = node;
 		size = 1;
-		return head;
 	}
 	
 	public void insertNode(int data, int location) {
@@ -121,5 +115,16 @@ public class CircularSinglyLinkedList {
 			temp.next = temp.next.next;
 		}
 		size--;
+	}
+
+	public void deleteCircularLL() {
+		if(head == null) {
+			System.out.println("list does not exist");
+		} else {
+			head = null;
+			tail.next = null;
+			tail = null;
+			System.out.println("list is deleted successfully");
+		}
 	}
 }

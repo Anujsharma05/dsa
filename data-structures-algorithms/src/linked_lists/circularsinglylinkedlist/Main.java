@@ -11,7 +11,7 @@ public class Main {
 		cll.insertNode(5, 3);
 		cll.insertNode(3, 2);
 		cll.traverseList();
-		cll.deleteNode(6);
+		cll.deleteCircularLL();
 		cll.traverseList();
 	}
 }
