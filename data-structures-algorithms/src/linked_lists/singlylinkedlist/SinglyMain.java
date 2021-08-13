@@ -11,10 +11,10 @@ public class SinglyMain {
 //		sl.createSinglyLinkedList(2);
 		
 		sl.insertNode(1, 0);
-//		sl.insertNode(3, 2);
-//		sl.insertNode(5, 3);
-//		sl.insertNode(7, 4);
-//		sl.insertNode(9, 5);
+		sl.insertNode(3, 2);
+		sl.insertNode(5, 3);
+		sl.insertNode(7, 4);
+		sl.insertNode(9, 5);
 		
 //		System.err.println("Insert the number of nodes to be entered");
 //		Scanner sc = new Scanner(System.in);
@@ -32,9 +32,10 @@ public class SinglyMain {
 //		
 //		if(pos == -1) System.out.println("Not Found");
 //		else System.out.println("found at location " + pos);
-		sl.deleteNode(0);
-		System.err.println(sl.size);
-		sl.traverseNodes();
+//		sl.deleteNode(0);
+//		System.err.println(sl.size);
+//		sl.traverseNodes();
+		sl.traverseRecursively(sl.head);
 	}
 
 }

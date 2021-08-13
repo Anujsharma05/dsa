@@ -121,4 +121,12 @@ public class SinglyLinkedList {
 	public void deleteEntireList() {
 		head = tail = null;
 	}
+
+	public void traverseRecursively(Node temp) {
+		if(temp == null) {
+			return;
+		}
+		System.out.print(temp.getData() + " ");
+		traverseRecursively(temp.getNext());
+	}
 }
