@@ -6,64 +6,51 @@ public class RotateMatrix {
 
 	public static void main(String[] args) {
 
-		int[][] matrix = { {1,2},{3,4}};
+		int[][] matrix = {
+				{1, 1, 0, 0},
+				{0, 0, 0, 1},
+				{0, 1, 0, 0},
+				{1, 0, 1, 1}
+		};
+
+//		int[][] matrix = {
+//				{1,2,3},
+//				{4,5,6},
+//				{7,8,9},
+//		};
 
 		rotateMatrix(matrix);
 	}
-	
-	 public static void rotateMatrix(int[][] M) {
-	        int n = M.length, depth = n / 2;
-	        for (int i = 0; i < depth; i++) {
-	            int len = n - 2 * i - 1, opp = n - 1 - i;
-	            for (int j = 0; j < len; j++) {
-	                int temp = M[i][i+j];
-	                M[i][i+j] = M[opp-j][i];
-	                M[opp-j][i] = M[opp][opp-j];
-	                M[opp][opp-j] = M[i+j][opp];
-	                M[i+j][opp] = temp;
-	            }
-	        }
-	        System.err.println(Arrays.deepToString(M));
-	    }
 
-//	static void rotateMatrix(int[][] matrix) {
-//
-//		if(matrix==null || matrix.length < 1) {
-//			return;
-//		}
-//		
-//		int endIndex = matrix.length - 1;
-//
-//		for (int i = 0; i < matrix.length - 1; i++) {
-//			for (int j = 0; j < matrix[i].length - 1; j++) {
-//
-//				if (i <= (endIndex - j) && j <= (endIndex - i)) {
-//					int temp = matrix[i][j];
-//					matrix[i][j] = matrix[endIndex - j][endIndex - i];
-//					matrix[endIndex - j][endIndex - i] = temp;
-//				}
-//
-//			}
-//		}
-//		for (int i = 0; i < matrix.length / 2; i++) {
-//			for (int j = 0; j < matrix[i].length; j++) {
-//				int temp = matrix[i][j];
-//				matrix[i][j] = matrix[endIndex - i][j];
-//				matrix[endIndex - i][j] = temp;
-//			}
-//		}
-//		System.out.print("[");
-//		for(int i=0; i<matrix.length; i++) {
-//			System.out.print("[");
-//			String colData = "";
-//			for(int j=0; j<matrix[i].length; j++) {
-//				colData = colData + matrix[i][j] + ",";
-//			}
-//			System.out.print(colData.substring(0, colData.length()-1));
-//			System.out.print("]");
-//		}
-//		System.out.print("]");
-//	}
+	static void rotateMatrix(int[][] matrix) {
+
+		if(matrix==null || matrix.length < 1) {
+			return;
+		}
+
+		int rows = matrix.length;
+		int cols = matrix[0].length;
+
+		for (int i = 0; i < rows; i++) {
+			for (int j = i; j < cols; j++) {
+				int temp = matrix[i][j];
+				matrix[i][j] = matrix[j][i];
+				matrix[j][i] = temp;
+			}
+		}
+
+		for(int i=0; i<rows; i++) {
+			for(int j=0; j<cols/2; j++) {
+				int temp = matrix[i][j];
+				matrix[i][j] = matrix[i][cols-j-1];
+				matrix[i][cols-j-1] = temp;
+			}
+		}
+
+		for(int i=0; i<rows; i++) {
+			System.out.println(Arrays.toString(matrix[i]));
+		}
+	}
 
 //	static void rotateMatrix(int[][] matrix) {
 //		int row = matrix.length;
