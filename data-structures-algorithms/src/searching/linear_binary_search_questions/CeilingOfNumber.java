@@ -1,4 +1,4 @@
-package searching.binary_search_questions;
+package searching.linear_binary_search_questions;
 
 public class CeilingOfNumber {
     public static void main(String[] args) {

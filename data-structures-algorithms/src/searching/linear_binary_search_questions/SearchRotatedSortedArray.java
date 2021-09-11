@@ -1,4 +1,4 @@
-package searching.binary_search_questions;
+package searching.linear_binary_search_questions;
 //https://leetcode.com/problems/search-in-rotated-sorted-array/
 public class SearchRotatedSortedArray {
     public static void main(String[] args) {

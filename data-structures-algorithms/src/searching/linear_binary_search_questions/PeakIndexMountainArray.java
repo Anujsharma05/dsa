@@ -1,4 +1,4 @@
-package searching.binary_search_questions;
+package searching.linear_binary_search_questions;
 //https://leetcode.com/problems/peak-index-in-a-mountain-array/
 public class PeakIndexMountainArray {
     public static void main(String[] args) {
