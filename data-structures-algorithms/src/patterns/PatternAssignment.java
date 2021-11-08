@@ -1,12 +1,10 @@
 package patterns;
 
-import java.sql.SQLOutput;
-
 //https://github.com/kunal-kushwaha/DSA-Bootcamp-Java/blob/main/assignments/09-patterns.md
 public class PatternAssignment {
     public static void main(String[] args) {
-        int n = 4;
-        pattern35(n);
+        int n = 5;
+        pattern25(n);
     }
 
     private static void pattern1(int n) {
@@ -235,6 +233,56 @@ public class PatternAssignment {
         }
     }
 
+    private static void pattern18(int n) {
+        for(int row=1; row<=2*n; row++) {
+            int colsInRow = row > n ? row - n : n-row+1;
+            for(int col=1; col<=colsInRow; col++) {
+                System.out.print("*");
+            }
+
+            int spacesInRow = row > n ? 2*n-row : row-1;
+            for(int space=1; space<=2*spacesInRow; space++) {
+                System.out.print(" ");
+            }
+            for(int col=1; col<=colsInRow; col++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void pattern19(int n) {
+            for(int row=1; row<2*n; row++) {
+                int colsInRow = row > n ? 2*n - row : row;
+                for(int col=1; col<=colsInRow; col++) {
+                    System.out.print("*");
+                }
+
+                int spacesInRow = row > n ? row - n : n - row;
+                for(int space=1; space<=2*spacesInRow; space++) {
+                    System.out.print(" ");
+                }
+                for(int col=1; col<=colsInRow; col++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+    }
+
+    private static void pattern20(int n) {
+        String symbol;
+        for(int row=1; row<=n; row++) {
+            System.out.print("*");
+
+            symbol = row==1 || row==n ? "*" : " ";
+            for(int col=1; col<=2; col++) {
+               System.out.print(symbol);
+            }
+            System.out.print("*");
+            System.out.println();
+        }
+    }
+
     private static void pattern21(int n) {
         int counter = 1;
         for(int row=1; row<=n; row++) {
@@ -253,6 +301,21 @@ public class PatternAssignment {
                 System.out.print(counter + " ");
                 counter = counter == 0 ? 1 : 0;
             }
+            System.out.println();
+        }
+    }
+
+    private static void pattern25(int n) {
+        for(int row=1; row<=n; row++) {
+            for(int space=1; space<=n-row; space++) {
+                System.out.print(" ");
+            }
+            System.out.print("*");
+            String symbol = row==1 || row==n ? "*" : " ";
+            for(int col=1; col<=3; col++) {
+                System.out.print(symbol);
+            }
+            System.out.print("*");
             System.out.println();
         }
     }
