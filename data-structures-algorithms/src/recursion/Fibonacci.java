@@ -18,7 +18,7 @@ public class Fibonacci {
 			return n;
 		}
 		
-		return fib(n-1) + fib(n-2);
+		return fib(n-2) + fib(n-1);
 	}
 	
 }

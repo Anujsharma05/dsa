@@ -3,30 +3,30 @@ package recursion;
 public class RecursionLogic {
 
 	public static void main(String[] args) {
-//		firstMethod();
-		recursiveMethod(6);
-		int output = powerOfTwo(3);
-		System.err.println("power of two: " + output);
+		firstMethod();
+//		recursiveMethod(6);
+//		int output = powerOfTwo(3);
+//		System.err.println("power of two: " + output);
 	}
 
-//	static void firstMethod() {
-//		secondMethod();
-//		System.out.println("I am first method");
-//	}
-//
-//	static void secondMethod() {
-//		thirdMethod();
-//		System.out.println("I am second method");
-//	}
-//
-//	static void thirdMethod() {
-//		fourthMethod();
-//		System.out.println("I am third method");
-//	}
-//
-//	static void fourthMethod() {
-//		System.out.println("I am fourth method");
-//	}
+	static void firstMethod() {
+		secondMethod();
+		System.out.println("I am first method");
+	}
+
+	static void secondMethod() {
+		thirdMethod();
+		System.out.println("I am second method");
+	}
+
+	static void thirdMethod() {
+		fourthMethod();
+		System.out.println("I am third method");
+	}
+
+	static void fourthMethod() {
+		System.out.println("I am fourth method");
+	}
 	
 	static void recursiveMethod(int n) {
 		
