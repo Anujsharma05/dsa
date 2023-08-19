@@ -10,19 +10,15 @@ public class NUniqueIntegersSumZero {
     }
     public static int[] sumZero(int n) {
 
-        int[] res = new int[n];
+        int[] result = new int[n];
 
-        if(n%2 == 0) {
-            for(int i=0; i<n/2; i++) {
-                res[i] = i+1;
-                res[i+n/2] = -(i+1);
-            }
-        } else {
-            for(int i=0; i<n/2; i++) {
-                res[i] = i+1;
-                res[i+1+n/2] = -(i+1);
-            }
+        int start = 1;
+        for(int i=0; i<n/2; i++) {
+            result[i] = start;
+            result[n-i-1] = -start;
+            start++;
         }
-        return res;
+
+        return result;
     }
 }

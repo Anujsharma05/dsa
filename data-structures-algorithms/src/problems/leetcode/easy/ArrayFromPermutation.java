@@ -2,6 +2,9 @@ package problems.leetcode.easy;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/build-array-from-permutation
+ */
 public class ArrayFromPermutation {
 
 	public static void main(String[] args) {
@@ -19,4 +22,31 @@ public class ArrayFromPermutation {
 		}
 		return ans;
     }
+
+	/**
+	 * O(1) space
+	 * @param nums
+	 * @return
+	 */
+	public static int[] buildArraySpaceOptimized(int[] nums) {
+
+		int ref = 1024;
+
+		for(int i=0; i<nums.length; i++) {
+
+			if(i == nums[i]) continue;
+
+			if(nums[i] < i) {
+				nums[i] = nums[i] * ref + nums[nums[i]]/ref;
+			} else {
+				nums[i] = nums[i] * ref + nums[nums[i]];
+			}
+		}
+
+		for(int i=0; i<nums.length; i++) {
+			nums[i] = nums[i] % ref;
+		}
+
+		return nums;
+	}
 }

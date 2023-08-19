@@ -5,8 +5,37 @@ import java.util.Arrays;
 public class MaximumPopulationYear {
     public static void main(String[] args) {
         int[][] logs = {{2008,2026},{2004,2008},{2034,2035},{1999,2050},{2049,2050},{2011,2035},{1966,2033},{2044,2049}};
-        int year = maximumPopulation(logs);
+        int year = maximumPopulationOptimized(logs);
         System.out.println(year);
+    }
+
+    public static int maximumPopulationOptimized(int[][] logs) {
+
+        int[] populationChart = new int[2050 - 1950 + 1];
+
+        int baseYear = 1950;
+
+        for(int i=0; i<logs.length; i++) {
+
+            int birthYear = logs[i][0];
+            int deathYear = logs[i][1];
+
+            populationChart[birthYear - baseYear]++;
+            populationChart[deathYear - baseYear]--;
+
+        }
+
+        int max = Integer.MIN_VALUE;
+        int index = 0;
+        for(int i=1; i<populationChart.length; i++) {
+            populationChart[i] = populationChart[i] + populationChart[i-1];
+
+            if(max < populationChart[i]) {
+                max = populationChart[i];
+                index = i;
+            }
+        }
+        return index + baseYear;
     }
 
     public static int maximumPopulations(int[][] logs) {

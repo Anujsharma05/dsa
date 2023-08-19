@@ -5,11 +5,14 @@ import java.util.Arrays;
 //https://leetcode.com/problems/longest-common-prefix/
 public class LongestCommonPrefix {
     public static void main(String[] args) {
-        String[] strs = {"ab","cde","efggh"};
-        String output = longestCommonPrefix(strs);
-        System.out.println(output);
+        String[] strs = {"flower","flow","flight"};
+//        String output = longestCommonPrefix(strs);
+//        System.out.println(output);
+
+        longestCommonPrefixSorted(strs);
     }
 
+//    O(MxN)
     public static String longestCommonPrefix(String[] strs) {
         if (strs.length < 1 || strs == null) {
             return "";
@@ -37,6 +40,7 @@ public class LongestCommonPrefix {
         return sub;
     }
 
+//    O(MxN)
     public static String alongestCommonPrefix(String[] strs) {
 
         int minLength = Integer.MAX_VALUE;
@@ -65,4 +69,22 @@ public class LongestCommonPrefix {
 
         return sb.toString();
     }
+
+//    O(nlogn)
+    public static void longestCommonPrefixSorted(String[] strs) {
+
+        Arrays.sort(strs);
+
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<strs[0].length(); i++) {
+            if(strs[0].charAt(i) == strs[strs.length-1].charAt(i)) {
+                sb.append(strs[0].charAt(i));
+                continue;
+            }
+            break;
+        }
+
+        System.out.println(sb.toString());
+    }
+
 }

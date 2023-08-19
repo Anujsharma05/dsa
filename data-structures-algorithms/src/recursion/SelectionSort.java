@@ -1,60 +1,64 @@
 package recursion;
 
+import java.util.Arrays;
+
 public class SelectionSort {
 
 	public static void main(String[] args) {
-		
+
 		int arr[] = {4, 3, 2, 8, 1, 1};
 		int n = arr.length;
-		
-//		int[] output = sort(arr, 0, n-1);
-//		for(int a: output) {
-//			System.err.print(a + " ");
-//		}
-		fun1(5);
-		int x = 4;
-		func(--x);
+
+//		sort(arr, 0, n-1);
+
+		selection(arr, arr.length, 0, 0);
+		System.out.println(Arrays.toString(arr));
 	}
-	
-	static void func(int x) {
-		System.err.println(x);
+
+	static void selection(int[] arr, int r, int c, int maxIndex) {
+		if(r == 0) return;
+		if(c < r) {
+			if(arr[c] > arr[maxIndex]) {
+				maxIndex = c;
+			}
+			selection(arr, r, c+1, maxIndex);
+		} else {
+			int temp = arr[r-1];
+			arr[r-1] = arr[maxIndex];
+			arr[maxIndex] = temp;
+
+			selection(arr, r-1, 0, 0);
+		}
 	}
-	static void fun1(int n)
-	{
-	   int i = 0;  
-	   if (n > 1)
-	     fun1(n - 1);
-	   for (i = 0; i < n; i++)
-	     System.out.print(" * ");
-	}
+
 	private static int findMinIndex(int arr[], int startIndex, int endIndex) {
-		
+
 		int smallestValue = Integer.MAX_VALUE;
 		int index = startIndex;
-		
+
 		for(int i=startIndex; i<=endIndex; i++) {
 			if(smallestValue > arr[i]) {
 				smallestValue = arr[i];
 				index = i;
 			}
 		}
-		
+
 		return index;
 	}
-	
+
 	private static int[] sort(int[] arr, int startIndex, int endIndex) {
-		
+
 		if(startIndex>endIndex) {
 			return arr;
 		}
-		
+
 		int minIndex = findMinIndex(arr, startIndex, endIndex);
-		
+
 		//swap
 		int temp = arr[startIndex];
 		arr[startIndex] = arr[minIndex];
 		arr[minIndex] = temp;
-		
+
 		return sort(arr, startIndex+1, endIndex);
 	}
 }

@@ -2,6 +2,9 @@ package problems.leetcode.easy;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/running-sum-of-1d-array
+ */
 public class RunningSum1DArray {
     public static void main(String[] args) {
         int[] nums = {1,1,1,1,1};

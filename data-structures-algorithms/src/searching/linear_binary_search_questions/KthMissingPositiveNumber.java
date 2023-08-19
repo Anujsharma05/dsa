@@ -52,37 +52,37 @@ public class KthMissingPositiveNumber {
     }
 
     //binary search
-//    public static int findKthPositive(int[] arr, int k) {
-//        int lastIndex = arr.length-1;
-//        int lastNumber = arr[lastIndex];
-//        int missingNosWithinArray = lastNumber - arr.length;
-//
-//        int initialMissingCount = arr[0] - 1;
-//        if(initialMissingCount >= k) {
-//            return k;
-//        } else if(missingNosWithinArray < k) {
-//            int remainingNosOutsideArray = k - missingNosWithinArray;
-//            return arr[lastIndex] + remainingNosOutsideArray;
-//        } else {
-//            //binary search
-//
-//            int start = 0;
-//            int end = lastIndex;
-//
-//            while(start <= end) {
-//                int mid = start + (end-start)/2;
-//
-//                //calculate missing numbers count before mid
-//                int missingCount = arr[mid] - mid - 1;
-//
-//                if(missingCount >= k) {
-//                    end = mid - 1;
-//                } else {
-//                    start = mid + 1;
-//                }
-//            }
-//            int missingBeforeCurrentIndex = arr[end] - end - 1;
-//            return arr[end] + k -missingBeforeCurrentIndex;
-//        }
-//    }
+    public static int findKthPositiveBinary(int[] arr, int k) {
+        int lastIndex = arr.length-1;
+        int lastNumber = arr[lastIndex];
+        int missingNosWithinArray = lastNumber - arr.length;
+
+        int initialMissingCount = arr[0] - 1;
+        if(initialMissingCount >= k) {
+            return k;
+        } else if(missingNosWithinArray < k) {
+            int remainingNosOutsideArray = k - missingNosWithinArray;
+            return arr[lastIndex] + remainingNosOutsideArray;
+        } else {
+            //binary search
+
+            int start = 0;
+            int end = lastIndex;
+
+            while(start <= end) {
+                int mid = start + (end-start)/2;
+
+                //calculate missing numbers count before mid
+                int missingCount = arr[mid] - mid - 1;
+
+                if(missingCount >= k) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            }
+            int missingBeforeCurrentIndex = arr[end] - end - 1;
+            return arr[end] + k -missingBeforeCurrentIndex;
+        }
+    }
 }

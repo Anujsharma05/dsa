@@ -1,17 +1,36 @@
 package arrays;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSumEfficient {
 
 	public static void main(String[] args) {
 		
-		int nums[] = {2,5,1,4};
-		int target = 9;
+		int nums[] = {3,3};
+		int target = 6;
 		
-		int[] output = twoSum(nums, target);
+		int[] output = twoSumMap(nums, target);
 		System.out.print(Arrays.toString(output));
 		
+	}
+
+	public static int[] twoSumMap(int[] nums, int target) {
+		Map<Integer, Integer> map = new HashMap<>();
+
+		int[] res = new int[2];
+
+		for(int i=0; i<nums.length; i++) {
+			if(map.get(nums[i]) != null) {
+				res[0] = map.get(nums[i]);
+				res[1] = i;
+			} else {
+				map.put(target - nums[i], i);
+			}
+		}
+
+		return res;
 	}
 
 	public static int[] twoSum(int[] nums, int target) {

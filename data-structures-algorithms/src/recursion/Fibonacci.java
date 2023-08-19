@@ -5,7 +5,7 @@ public class Fibonacci {
 	public static void main(String[] args) {
 		
 		Fibonacci obj = new Fibonacci();
-		var output = obj.fib(4);
+		var output = obj.fib(5);
 		System.err.println(output);
 	}
 

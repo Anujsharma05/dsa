@@ -3,6 +3,7 @@ package problems.leetcode.easy;
 import java.util.ArrayList;
 import java.util.List;
 
+//https://leetcode.com/problems/lucky-numbers-in-a-matrix/description/
 public class LuckyNumbersMatrix {
 
 	public static void main(String[] args) {

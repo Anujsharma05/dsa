@@ -2,106 +2,92 @@ package problems.leetcode.medium;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+ */
 public class FirstLastPosition {
 
 	public static void main(String[] args) {
 		int[] nums = {1};
-		int ans[] = searchRangeLogn(nums, 1);
+		FirstLastPosition obj = new FirstLastPosition();
+		int ans[] = obj.searchRangeOptimized(nums, 1);
 		System.err.println(Arrays.toString(ans));
 	}
 
-	private static int[] searchRangeLogn(int[] nums, int i) {
-		
-		int first = findFirst(nums, i);
-		int last = findLast(nums, i);
-		
-		return new int[] {first, last};
+	public int[] searchRangeOptimized(int[] nums, int target) {
+		int left = findLeftIndex(nums, target);
+		int right = findRightIndex(nums, target);
+		return new int[]{left,right};
 	}
-	
-	private static int findFirst(int[] nums, int target) {
-		
-		int index = -1;
-		int l=0, h = nums.length-1;
-		
-		while(l <= h) {
-			int mid = (l+h)/2;
-			
-			if(nums[mid] >= target) {
-				h = mid - 1;
+
+	public int findLeftIndex(int[] nums, int target) {
+		boolean isLeftFound = false;
+		int start = 0;
+		int end = nums.length-1;
+		while(start<=end) {
+			int mid = start + (end - start)/2;
+			if(target == nums[mid]) {
+				end = mid - 1;
+				isLeftFound = true;
+			} else if(target < nums[mid]) {
+				end = mid - 1;
 			} else {
-				l = mid + 1;
-			}
-			
-			if(nums[mid] == target) {
-				index = mid;
+				start = mid + 1;
 			}
 		}
-		
-		return index;
+		return isLeftFound ? start : -1;
 	}
-	
-	private static int findLast(int[] nums, int target) {
-		
-		int index = -1;
-		int l=0, h = nums.length-1;
-		
-		while(l <= h) {
-			int mid = (l+h)/2;
-			
-			if(nums[mid] <= target) {
-				l = mid + 1;
+
+	public int findRightIndex(int[] nums, int target) {
+		boolean isRightFound = false;
+		int start = 0;
+		int end = nums.length-1;
+		while(start<=end) {
+			int mid = start + (end - start)/2;
+
+			if(target == nums[mid]) {
+				start = mid + 1;
+				isRightFound = true;
+			} else if(target > nums[mid]) {
+				start = mid + 1;
 			} else {
-				h = mid - 1;
-			}
-			
-			if(nums[mid] == target) {
-				index = mid;
+				end = mid - 1;
 			}
 		}
-		
-		return index;
+		return isRightFound ? end : -1;
 	}
-	
-//	public static int[] searchRange(int[] nums, int target) {
-//		int loc = binarySearch(nums, target);
-//		if(loc == -1)
-//			return new int[] {-1, -1};
-//		
-//		int start = loc, end = loc;
-//		
-//		for(int i=loc-1; i>=0; i--)  {
-//			if(nums[i] == target) {
-//				start = i;
-//			} else {
-//				break;
-//			}
-//		}
-//		
-//		for(int j=loc+1; j<nums.length; j++) {
-//			if(nums[j] == target) {
-//				end = j;
-//			} else {
-//				break;
-//			}
-//		}
-//		
-//        return new int[] {start, end};
-//    }
-//	
-//	private static int binarySearch(int[] nums, int target) {
-//		
-//		int l = 0, h=nums.length-1;
-//		while(l<=h) {
-//			int mid = (l+h)/2;
-//			
-//			if(nums[mid] == target) {
-//				return mid;
-//			} else if(nums[mid] < target) {
-//				l = mid+1;
-//			} else {
-//				h = mid-1;
-//			}
-//		}
-//		return -1;
-//	}
+
+	/**
+	 * Brute force
+	 */
+	public static int[] searchRange(int[] nums, int target) {
+
+		int[] res = {-1,-1};
+
+		if(nums.length == 0)
+			return res;
+
+		boolean isLeftFound = false, isRightFound = false;
+		int i=0, j= nums.length-1;
+
+		while(i <= j) {
+			if(nums[i] == target)
+				isLeftFound = true;
+
+			if(nums[j] == target)
+				isRightFound = true;
+
+			if(isLeftFound && isRightFound) {
+				res[0] = i;
+				res[1] = j;
+				return res;
+			}
+
+			if(!isLeftFound)
+				i++;
+			if(!isRightFound)
+				j--;
+		}
+		return res;
+	}
 }
