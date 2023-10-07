@@ -10,7 +10,7 @@ public class Permutation {
         ArrayList<String> list = subsetList("", "abc");
         System.out.println(list);
 
-        int count = subsetCount("", "abcd");
+        int count = subsetCount("", "abc");
         System.out.println(count);
     }
 

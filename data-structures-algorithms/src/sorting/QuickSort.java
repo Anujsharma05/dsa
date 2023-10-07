@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {7,6,15,4,13,22,1,15};
+        int[] arr = {8,2,4,7,8,9,6};
         sort(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }

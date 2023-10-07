@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class NQueens {
     public static void main(String[] args) {
-        int n = 4;
+        int n = 1;
         boolean[][] board = new boolean[n][n];
         int possiblePositions = queens(board, 0);
         System.out.println(possiblePositions);
