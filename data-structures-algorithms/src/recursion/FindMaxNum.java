@@ -1,9 +1,7 @@
 package recursion;
 
 public class FindMaxNum {
-
 	public static void main(String[] args) {
-		
 		int arr[] = {4, 5, 1, 9, 3};
 		int n = arr.length;
 		int output = findMaxNum(arr, n);

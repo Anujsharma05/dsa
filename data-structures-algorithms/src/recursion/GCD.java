@@ -4,7 +4,7 @@ public class GCD {
 
 	public static void main(String[] args) {
 
-		int output = gcd(8, 7);
+		int output = gcd(11, 7);
 		System.err.println(output);
 	}
 
@@ -12,6 +12,7 @@ public class GCD {
 		if(a<0 || b<0) {
 			return -1;
 		}
+		System.out.println("a: " + a + ", b: " + b);
 		if(b==0) {
 			return a;
 		}

@@ -2,7 +2,7 @@ package recursion;
 
 public class CapitalizeWord {
 	public static void main(String args[]) {
-		String str = "";
+		String str = "this   is   sparta";
 		String output = capitalizeWord(str);
 		System.err.println(output);
 	}

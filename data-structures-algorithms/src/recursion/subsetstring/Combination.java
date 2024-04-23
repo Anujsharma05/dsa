@@ -7,6 +7,10 @@ public class Combination {
         subset(p, str);
     }
 
+    /**
+     * @param p processed string
+     * @param up unprocessed string
+     */
     static void subset(String p, String up) {
         if(up.isEmpty()) {
             if(!p.isEmpty()) {

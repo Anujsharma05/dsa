@@ -15,8 +15,8 @@ public class PathAllDirections {
 
         int[][] path = new int[3][3];
 
-//        paths("", maze, 0, 0);
-        pathsPrint("", maze, 0,0, path, 1);
+        paths("", maze, 0, 0);
+//        pathsPrint("", maze, 0,0, path, 1);
     }
 
     static void paths(String p, boolean[][] maze, int r, int c) {

@@ -13,7 +13,7 @@ public class MazePathsWithDiagonal {
     static void paths(String p, int r, int c) {
 
         if(r==1 &&  c==1) {
-            System.out.print(p + ", ");;
+            System.out.print(p + ", ");
         }
         if(r>1) {
             paths(p + 'D', r-1, c);

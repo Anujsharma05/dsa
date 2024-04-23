@@ -11,7 +11,7 @@ public class FindAllTargetIndex {
         int[] arr = {1,2,3,4,4,8,12};
         int target = 4;
         List<Integer> res = findTarget(arr, target);
-        res.stream().forEach(System.out::println);
+        System.out.println(res);
     }
 
     static List<Integer> findTarget(int[] arr, int target) {

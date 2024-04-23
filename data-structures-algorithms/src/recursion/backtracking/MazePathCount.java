@@ -11,6 +11,9 @@ public class MazePathCount {
         System.out.println(count);
     }
 
+    /**
+     * Doubtful code
+     */
     static int count(int r, int c) {
 
         if(r==1 || c==1) {

@@ -2,13 +2,12 @@ package recursion.subsetstring;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class Dice {
     public static void main(String[] args) {
-        int target = 4;
+        int target = 3;
 //        dice("", target);
-//        System.out.println(diceList("", target));
-        customFaceDice("", target, 8);
+        System.out.println(diceList("", target));
+//        customFaceDice("", target, 8);
     }
     static void dice(String p, int target) {
 

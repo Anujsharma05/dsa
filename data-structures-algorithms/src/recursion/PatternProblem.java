@@ -3,16 +3,16 @@ package recursion;
 /**
  * r => row
  * c => col
- *
- *   r=4   ****
- *   r=3   ***
- *   r=2   **
  *   r=1   *
+ *   r=2   **
+ *   r=3   ***
+ *   r=4   ****
  */
 public class PatternProblem {
     public static void main(String[] args) {
         int n = 4;
         printTriangle(n,0);
+//        print(n);
     }
 
     static void printTriangle(int r, int c) {
