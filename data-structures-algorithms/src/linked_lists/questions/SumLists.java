@@ -15,7 +15,7 @@ public class SumLists {
         SumLists obj = new SumLists();
 
         LinkedList sum = obj.listsSum(list1, list2);
-        sum.traverseLinkedList();
+        sum.print();
     }
 
     public LinkedList listsSum(LinkedList list1, LinkedList list2) {

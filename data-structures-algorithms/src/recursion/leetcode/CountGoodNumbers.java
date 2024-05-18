@@ -6,10 +6,10 @@ package recursion.leetcode;
 //will only work for small n (Max 10)
 public class CountGoodNumbers {
     public static void main(String[] args) {
-        long n = 20;
-//        int count = countGoodNumbers(n);
-//        System.out.println("Count: " + count);
-//999928327
+        long n = 2;
+        int count = countGoodNumbers(n);
+        System.out.println("Count: " + count);
+        if(true) return;
         int tenModuloSeven = (int) Math.pow(10, 9) + 7;
 
         int pow1;
@@ -43,7 +43,7 @@ public class CountGoodNumbers {
     static int count(String p, long n, int[] evenIndex, int[] oddIndex, int index) {
 
         if(n == 0) {
-//            System.out.println(p);
+            System.out.println(p);
             return 1;
         }
 

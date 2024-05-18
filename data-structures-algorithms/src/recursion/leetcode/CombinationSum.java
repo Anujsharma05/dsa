@@ -7,10 +7,8 @@ public class CombinationSum {
     public static void main(String[] args) {
         int target = 7;
         int[] arr = {2,3,6,7};
-//		combinationSum("", arr, target);
-        compareList();
+		combinationSum("", arr, target);
     }
-
     /**
      * Contains repeated list, need to remove those
      */
@@ -23,14 +21,5 @@ public class CombinationSum {
         for(int i=0; i<arr.length && target-arr[i]>=0; i++) {
             combinationSum(p + arr[i], arr, target-arr[i]);
         }
-    }
-
-    /**
-     * To eliminate repeated list
-     */
-    static void compareList() {
-        List<Integer> list = new LinkedList<>();
-        list.add(4);
-        System.out.println(list.get(list.size()-1));
     }
 }

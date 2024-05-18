@@ -10,14 +10,14 @@ public class RemoveDups {
         l.insertNode(1);
         l.insertNode(3);
 
-        l.traverseLinkedList();
+        l.print();
 
         RemoveDups obj = new RemoveDups();
 
 //      obj.deleteDups(l);
         obj.deleteDupsWithSet(l);
 
-        l.traverseLinkedList();
+        l.print();
     }
 
     public void deleteDups(LinkedList list) {

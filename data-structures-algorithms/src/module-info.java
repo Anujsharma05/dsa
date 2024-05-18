@@ -19,6 +19,6 @@ module dsalgo {
 	exports arrays;
 	exports bit_manipulation;
 	exports problems.leetcode.medium;
-	exports recursion;
     exports recursion.leetcode;
+    exports recursion.other_questions;
 }

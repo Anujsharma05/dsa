@@ -14,25 +14,39 @@ public class LinkedList {
     }
 
     public void insertNode(int data) {
-        if(head == null) {
+        if (head == null) {
             createLinkedList(data);
             return;
-        } else {
-            Node node = new Node();
-            node.value = data;
-            node.next = null;
-            tail.next = node;
-            tail = node;
-            size++;
         }
+        Node node = new Node();
+        node.value = data;
+        node.next = null;
+        tail.next = node;
+        tail = node;
+        size++;
     }
 
-    public void traverseLinkedList() {
+    public void print() {
         Node temp = head;
-        while(temp!=null) {
-            System.out.print(temp.value + " ");
+        while (temp != null) {
+            System.out.print(temp.value + "->");
             temp = temp.next;
         }
-        System.out.println();
+        System.out.println("null");
+    }
+
+    public void recursiveInsertion(int index, int value) {
+        head = recursiveInsertion(index, value, head);
+    }
+
+    private Node recursiveInsertion(int index, int value, Node node) {
+        if (index == 0) {
+            Node newNode = new Node(value);
+            newNode.next = node;
+            size++;
+            return newNode;
+        }
+        node.next = recursiveInsertion(index - 1, value, node.next);
+        return node;
     }
 }

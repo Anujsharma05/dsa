@@ -16,7 +16,7 @@ public class Partition {
         int x = 5;
         LinkedList part = obj.partition(l, x);
 
-        part.traverseLinkedList();
+        part.print();
     }
     LinkedList partition(LinkedList ll, int x) {
         Node currentNode = ll.head;

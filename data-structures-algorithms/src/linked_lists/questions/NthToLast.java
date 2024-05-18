@@ -9,7 +9,7 @@ public class NthToLast {
         l.insertNode(4);
         l.insertNode(5);
 
-        l.traverseLinkedList();
+        l.print();
 
         NthToLast obj = new NthToLast();
 
