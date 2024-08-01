@@ -5,6 +5,10 @@ public class SLL {
     private Node tail;
     private int size;
 
+    public Node getHead() {
+        return head;
+    }
+
     public class Node {
         private int value;
         private Node next;
@@ -205,9 +209,8 @@ public class SLL {
             temp = temp.next;
         }
         System.out.println("null");
-        System.out.println("head: " + head);
-        System.out.println("tail: " + tail);
-        System.out.println("size: " + size);
+
+        System.out.println("head:" + head + ", tail:" + tail + ", size:" + size);
     }
 
     public void printRecursive() {
@@ -241,4 +244,87 @@ public class SLL {
         curNode.next = nextNode;
         return curNode;
     }
+
+    public void bubbleSort() {
+        bubbleSort(size-1, 0);
+    }
+    private void bubbleSort(int r, int c) {
+        if(r == 0) return;
+
+        if(c < r) {
+            Node first = getNode(c);
+            Node second = getNode(c+1);
+            if(first.value > second.value) {
+                //swap
+                if(first == head) {
+                    head = second;
+                    first.next = second.next;
+                    second.next = first;
+                }else if(second == tail) {
+                    Node prev = getNode(c-1);
+                    prev.next = second;
+                    second.next = first;
+                    first.next = null;
+                    tail = first;
+                } else {
+                    Node prev = getNode(c-1);
+                    prev.next = second;
+                    first.next = second.next;
+                    second.next = first;
+                }
+            }
+            bubbleSort(r, c+1);
+        } else {
+            bubbleSort(r-1, 0);
+        }
+    }
+
+    public void reverse() {
+        if(head == null) return;
+        Node lastNode = reverse(head);
+        lastNode.next = null;
+        tail = lastNode;
+    }
+
+    /**
+     * My approach: If tail variable is not there
+     */
+    private Node reverse(Node node) {
+        if(node.next == null) {
+            head = node;
+            return node;
+        }
+        Node nextNode = reverse(node.next);
+        nextNode.next = node;
+        return node;
+    }
+    public void reverseUsingTail(Node node) {
+        if(node == tail) {
+            head = tail;
+            return;
+        }
+        reverseUsingTail(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+    }
+
+    public void reverseIterativeInPlace() {
+        if(head == null) {
+            return;
+        }
+        Node prev = null;
+        Node cur = head;
+        Node next = head.next;
+        tail = head;
+        while(cur != null) {
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+            next = next == null ? null : next.next;
+        }
+        head = prev;
+    }
+
+
 }
