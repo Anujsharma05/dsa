@@ -1,8 +1,5 @@
 package recursion.leetcode;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class CombinationSum {
     public static void main(String[] args) {
         int target = 7;

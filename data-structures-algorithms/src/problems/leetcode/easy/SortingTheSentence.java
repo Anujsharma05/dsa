@@ -1,12 +1,14 @@
 package problems.leetcode.easy;
 
-public class SortSentence {
+/**
+ * https://leetcode.com/problems/sorting-the-sentence/description/
+ */
+public class SortingTheSentence {
 
 	public static void main(String[] args) {
 		String s = "Myself2 Me1 I4 and3";
 		String sorted = sortSentence(s);
 		System.err.println(sorted);
-
 	}
 	 public static String sortSentence(String s) {
 		 
@@ -14,7 +16,9 @@ public class SortSentence {
 		 String[] res = new String[sArr.length];
 		 
 		 for(int i=0; i<sArr.length; i++) {
-			 int pos = Character.getNumericValue(sArr[i].charAt(sArr[i].length()-1));
+			 char ch = sArr[i].charAt(sArr[i].length()-1);
+			 System.out.println(ch);
+			 int pos = Character.getNumericValue(ch);
 			 
 			 res[pos-1] = sArr[i].substring(0, sArr[i].length()-1);
 		 }
